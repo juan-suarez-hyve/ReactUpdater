@@ -1,0 +1,4 @@
+provider: github
+owner: hyve-innovate
+repo: hyve-icons-app
+updaterCacheDirName: new-icon-app-updater-cache

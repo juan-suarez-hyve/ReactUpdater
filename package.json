@@ -1,0 +1,136 @@
+{
+  "name": "new-icon-app",
+  "productName": "new-icon-app",
+  "version": "1.0.3",
+  "description": "My Electron application description",
+  "main": ".vite/build/main.js",
+  "scripts": {
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "publish": "electron-forge publish",
+    "lint": "eslint --ext .ts,.tsx .",
+    "dev": "vite dev",
+    "build": "electron-builder"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^7.5.0",
+    "@electron-forge/maker-deb": "^7.5.0",
+    "@electron-forge/maker-rpm": "^7.5.0",
+    "@electron-forge/maker-squirrel": "^7.5.0",
+    "@electron-forge/maker-zip": "^7.5.0",
+    "@electron-forge/plugin-auto-unpack-natives": "^7.5.0",
+    "@electron-forge/plugin-fuses": "^7.5.0",
+    "@electron-forge/plugin-vite": "^7.5.0",
+    "@electron-forge/publisher-github": "^7.6.1",
+    "@electron/fuses": "^1.8.0",
+    "@types/electron-notifications": "^0.0.8",
+    "@types/fuzzy-search": "^2.1.5",
+    "@types/jest": "^29.5.14",
+    "@types/node": "^22.10.2",
+    "@types/react": "^19.0.10",
+    "@types/react-color": "^3.0.13",
+    "@types/react-dom": "^19.0.4",
+    "@typescript-eslint/eslint-plugin": "^5.62.0",
+    "@typescript-eslint/parser": "^5.62.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "electron": "35.0.0",
+    "electron-winstaller": "^5.4.0",
+    "eslint": "^8.57.1",
+    "eslint-plugin-import": "^2.31.0",
+    "mini-svg-data-uri": "^1.4.4",
+    "ts-node": "^10.9.2",
+    "typescript": "~4.5.4",
+    "vite": "^5.4.10",
+    "vite-plugin-copy": "^0.1.6",
+    "vite-plugin-electron": "^0.29.0"
+  },
+  "keywords": [],
+  "author": "hyve",
+  "license": "MIT",
+  "dependencies": {
+    "@melloware/coloris": "^0.24.0",
+    "@simonwep/pickr": "^1.9.1",
+    "@types/react-window": "^1.8.8",
+    "axios": "^1.8.1",
+    "coloris": "^0.1.0",
+    "dotenv": "^16.4.7",
+    "electron-forge": "^5.2.4",
+    "electron-log": "^5.3.0",
+    "electron-notifications": "^1.0.0",
+    "electron-publisher": "^0.1.6",
+    "electron-squirrel-startup": "^1.0.1",
+    "electron-updater": "^4.3.9",
+    "fuzzy-search": "^3.2.1",
+    "hyperlist": "^1.0.0",
+    "is-elevated": "^4.0.0",
+    "node-notifier": "^10.0.1",
+    "react": "^19.0.0",
+    "react-color": "^2.19.3",
+    "react-dom": "^19.0.0",
+    "react-hyperlist": "^1.0.0-alpha.1",
+    "react-window": "^1.8.11",
+    "update-electron-app": "^3.1.1"
+  },
+  "build": {
+    "appId": "com.hyve.icons-app",
+    "productName": "new-icon-app",
+    "files": [
+      "dist/**/*",
+      ".vite/**/*",
+      "src/*",
+      "public/**/*"
+    ],
+    "directories":{
+      "output":"out"
+    },
+    "extraResources": [
+      {
+        "from": ".src/",
+        "to": ".src/data/*"
+      }
+    ],
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "juan-suarez-hyve",
+        "repo": "hyve-icons-app"
+      }
+    ],
+    "win": {
+      "target": "nsis",
+      "artifactName": "new-icon-app-${version}.Setup.exe",
+      "publish": [
+        "github"
+      ]
+    },
+    "linux": {
+      "target": "AppImage",
+      "artifactName": "new-icon-app-${version}.Setup.AppImage",
+      "publish": [
+        "github"
+      ]
+    },
+    "mac": {
+      "identity": "com.hyve.icons-app",
+      "artifactName": "new-icon-app-${version}.Setup.dmg",
+      "target": "dmg",
+      "publish": [
+        "github"
+      ],
+      "hardenedRuntime": true,
+      "gatekeeperAssess": false
+    }
+  },
+  "packagerConfig": {
+    "files": [
+      ".vite/**/*",
+      "./src/*",
+      "public/**/*"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hyve-innovate/hyve-icons-app"
+  }
+}
